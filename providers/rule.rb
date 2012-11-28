@@ -3,7 +3,7 @@ def load_current_resource
   require 'ript/dsl'
   unless(new_resource.path)
     new_resource.path ::File.join(
-      node[:ript][:base_dir],
+      node[:ript][:iptables_dir],
       new_resource.name
     )
   end
