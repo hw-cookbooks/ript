@@ -1,6 +1,5 @@
-actions :create, :delete
-default_action :create
+actions :add, :delete
+default_action :add
 
-attribute :path, :kind_of => String
-attribute :base_dir, :kind_of => String
+attribute :group, :kind_of => [String, Symbol], :default => 'default'
 attribute :ript, :kind_of => Proc, :required => true

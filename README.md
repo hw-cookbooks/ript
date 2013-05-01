@@ -46,9 +46,22 @@ ript_template 'my_template' do
 end
 ```
 
+### ript_rule
+
+```ruby
+ript_rule 'allow ssh from office' do
+  ript do
+    label 'office', :address => '127.0.0.121'
+    accept 'office' do
+      from 'office'
+      ports 22
+    end
+  end
+end
+
 ## Attributes
 
-* `node[:ript][:ript_dir] = '/etc/ript.d'` # Storage location for ript files and templates
+* `node[:ript][:base_dir] = '/etc/ript.d'` # Storage location for ript files and templates
 
 ## Dependencies
 
@@ -57,3 +70,4 @@ end
 ## Resources
 
 * Repo: https://github.com/hw-cookbooks/ript
+* IRC: Freenode @ #heavywater
