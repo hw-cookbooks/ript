@@ -4,7 +4,7 @@ def load_current_resource
   node.run_state[:ript] ||= Mash.new
   node.run_state[:ript][:rules] ||= Mash.new
   node.run_state[:ript][:rules][new_resource.group] ||= []
-  unless(@writer = new_resource.run_context.resource_collection.lookup("ript_writer[#{new_resource.group}]"))
+  unless (@writer = new_resource.run_context.resource_collection.lookup("ript_writer[#{new_resource.group}]"))
     @writer = Chef::Resource.RiptWriter.new(new_resource.group, new_resource.run_context)
     @writer.action :nothing
     new_resource.run_context.resource_collection << @writer
