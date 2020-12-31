@@ -9,7 +9,7 @@ end
 
 action :write do
   runner = @runner
-  if (rules = [:ript, :rules, new_resource.name].inject(node.run_state) { |m, k| m[k] if m })
+  if (rules = [:ript, :rules, new_resource.name].inject(node.run_state) { |acc, elem| acc[elem] if acc })
     file ::File.join(new_resource.base_dir, new_resource.name) do
       content rules.join("\n")
       mode '644'
